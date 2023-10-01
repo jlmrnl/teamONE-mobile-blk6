@@ -80,28 +80,47 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="55dp"
         android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/btnSignin"
-            android:layout_width="300dp"
+            android:layout_width="326dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/ButtonTextColor"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="15dp"
-            android:textSize="16sp"
-            android:text="Sign in" />
+            android:text="Sign in"
+            android:textColor="@color/ButtonTextColor"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/txtForgotPw"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Forgot password?"
+            android:layout_width="181dp"
+            android:layout_height="match_parent"
+            android:text="Forgot your password?"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/txtForgotPw"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Reset"
+            android:textAlignment="center"
+            android:textColor="@color/ButtonTextColor"
+            android:textSize="16dp"
+            />
     </LinearLayout>
 
 </RelativeLayout>
