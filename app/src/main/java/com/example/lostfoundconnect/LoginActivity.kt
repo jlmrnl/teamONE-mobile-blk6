@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.EditText
 import android.widget.TextView
 
 class LoginActivity : AppCompatActivity() {
@@ -29,5 +30,20 @@ class LoginActivity : AppCompatActivity() {
             startActivity(txtGoToForgotPW)
 
         }
+        // Get references to the email and password EditText fields
+        val emailEditText = findViewById<EditText>(R.id.tfSigninEmail)
+        val passwordEditText = findViewById<EditText>(R.id.tfSigninPw)
+
+// Get user input from the EditText fields
+        val email = emailEditText.text.toString().trim()
+        val password = passwordEditText.text.toString().trim()
+
+// Validate input
+        if (email.isEmpty() || password.isEmpty()) {
+            showToast("Email and password are required")
+            return@setOnClickListener
+        }
+
     }
+
 }
