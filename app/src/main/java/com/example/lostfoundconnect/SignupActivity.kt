@@ -45,7 +45,7 @@ class SignupActivity : AppCompatActivity() {
         }
 
 
-        val apiUrl = "http://192.168.128.104:3000/auth/signup"  // Use 10.0.2.2 for accessing localhost from Android Emulator
+        val apiUrl = "http://192.168.128.104:3000/auth/signin"  // Use 10.0.2.2 for accessing localhost from Android Emulator
 
         btnSignup.setOnClickListener {
             val name = txtName.text.toString().trim()

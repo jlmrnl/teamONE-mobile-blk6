@@ -4,24 +4,258 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#57078e"
     tools:context=".SessionActivity">
 
+    <!-- Global Header Component -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/globalHeader"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:padding="16dp"
+        android:background="#57078e">
 
+        <!-- Profile Picture -->
+        <ImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/profile_placeholder"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- News Feed Text -->
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+
             android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:textColor="@color/white"
-            android:textSize="26sp"/>
+            android:layout_weight="1"
+            android:text="News Feed"
+            android:layout_marginTop="5dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"/>
+
+        <!-- Burger Menu Button -->
+        <ImageView
+            android:id="@+id/burgerMenu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_burger_menu"
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 
+    <!-- News Feed Content -->
+    <ScrollView
+        android:id="@+id/newsFeedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/globalHeader">
+
+
+
+        <!-- User's Posts -->
+        <LinearLayout
+            android:id="@+id/userPostsContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="375dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="end"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtCreatePost"
+                    android:layout_width="85dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Create post"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/createPost"
+                    android:layout_width="47dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_create_post" />
+
+
+            </LinearLayout>
+
+            <!-- Single Post -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#ECECEC"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- User's Profile Picture, Username, Triple Dot Menu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/postUserProfilePicture"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/profile_placeholder"
+                        android:layout_gravity="center_vertical"/>
+
+                    <TextView
+                        android:id="@+id/postUsername"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Username"
+                        android:textSize="16sp"
+                        android:layout_marginStart="8dp"/>
+
+                    <ImageView
+                        android:id="@+id/postOptions"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_triple_dot_menu"/>
+
+                </LinearLayout>
+
+
+
+                <!-- Lost Item Category, Post Description, Optional Image -->
+                <TextView
+                    android:id="@+id/lostItemCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lost Item Category"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/postDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Post Description"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    app:srcCompat="@drawable/image_placeholder" />
+
+                <!-- Like, Comment, Share Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/likeButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_like"/>
+
+                    <TextView
+                        android:id="@+id/likeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <ImageView
+                        android:id="@+id/commentButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_comment"/>
+
+                    <TextView
+                        android:id="@+id/commentCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <ImageView
+                        android:id="@+id/shareButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_share"/>
+
+                    <TextView
+                        android:id="@+id/shareCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:layout_marginStart="8dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Add more posts here -->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <!-- Global Bottom Navigation Component -->
+    <LinearLayout
+        android:id="@+id/globalBottomNav"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#57078e"
+        android:layout_alignParentBottom="true">
+
+        <!-- Home Button -->
+        <ImageView
+            android:id="@+id/homeButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_home"/>
+
+        <!-- Friends Button -->
+        <ImageView
+            android:id="@+id/friendsButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_friends"/>
+
+        <!-- Search Button -->
+        <ImageView
+            android:id="@+id/searchButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_search"/>
+
+        <!-- Notifications Button -->
+        <ImageView
+            android:id="@+id/notificationsButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_notifications"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
